@@ -1,15 +1,15 @@
-console.log("working...");
-const express = require("express");
+var loremIpsum = require('lorem-ipsum');
+
+const express = require('express');
 const app = express();
 
-app.listen(4000,);
-var loremIpsum = require ('lorem-ipsum'),
+app.get('/lorem/:number', function (req, res)
+        {
+  res.send( loremIpsum ({count: req.params.number
+, units: 'paragraphs', format: 'html'
+})
+  );
+    });
 
-
-output = loremIpsum( {
-  count: 3 , units: 'paragraph', format: 'html'
-});
-
-app.get('/', function(req,res){
-  res.send(output)
+app.listen(4000, function () {
 });
